@@ -1,0 +1,56 @@
+<!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Chivas</title>
+  <link rel="stylesheet" href="../styles/contact.css">
+  <script>
+    // JavaScript to toggle Rider-specific fields
+    function toggleRiderFields() {
+      const role = document.getElementById("role").value;
+      const riderFields = document.getElementById("rider-fields");
+      if (role === "rider") {
+        riderFields.style.display = "block";
+      } else {
+        riderFields.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">Chivas</div>
+    <ul class="navbar-links">
+      <li><a href="./index.html">Login</a></li>
+      <li><a href="signup.html" class="active">Sign Up</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Signup Page Content -->
+  <<div class="contact-container">
+    <div class="contact-box">
+      <h1 class="contact-title">Contact Us</h1>
+      <div class="contact-details">
+        <div class="contact-info">
+          <h2 class="info-title">Our Company</h2>
+          <p class="company-name">Chivas Technologies</p>
+          <p class="company-description">
+            We are committed to providing the best digital solutions to help businesses grow and innovate.
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <h2 class="info-title">Contact Info</h2>
+          <p><strong>Email:</strong> <a href="mailto:support@chivas.com" class="contact-link">support@chivas.com</a></p>
+          <p><strong>Phone:</strong> +1 (800) 123-4567</p>
+          <p><strong>Address:</strong> 123 Business Ave, New York, NY 10001</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

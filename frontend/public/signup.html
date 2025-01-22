@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Chivas</title>
+  <link rel="stylesheet" href="../styles/signup.css">
+  <script>
+    // JavaScript to toggle Rider-specific fields
+    function toggleRiderFields() {
+      const role = document.getElementById("role").value;
+      const riderFields = document.getElementById("rider-fields");
+      if (role === "rider") {
+        riderFields.style.display = "block";
+      } else {
+        riderFields.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">Chivas</div>
+    <ul class="navbar-links">
+      <li><a href="./index.html">Login</a></li>
+      <li><a href="signup.html" class="active">Sign Up</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Signup Page Content -->
+  <div class="signup-container">
+    <div class="signup-box">
+      <h1 class="signup-title">Sign Up</h1>
+      <form>
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <label for="verify-password">Verify Password</label>
+          <input type="password" id="verify-password" name="verify-password" placeholder="Re-enter your password" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role" onchange="toggleRiderFields()" required>
+            <option value="">Select Role</option>
+            <option value="user">User</option>
+            <option value="rider">Rider</option>
+          </select>
+        </div>
+        <div id="rider-fields" style="display: none;">
+          <div class="form-group">
+            <label for="license">License Number</label>
+            <input type="text" id="license" name="license" placeholder="Enter your license number">
+          </div>
+          <div class="form-group">
+            <label for="vehicle-reg">Vehicle Registration Number</label>
+            <input type="text" id="vehicle-reg" name="vehicle-reg" placeholder="Enter your vehicle registration number">
+          </div>
+        </div>
+        <button type="submit" class="signup-button">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

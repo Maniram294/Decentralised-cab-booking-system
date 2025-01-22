@@ -3,52 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decentralized Cab Booking System</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Chivas Login</title>
+  <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
-  <header>
-    <h1>Decentralized Cab Booking System</h1>
-  </header>
-  <main>
-    <section id="wallet-connect">
-      <button id="connect-wallet">Connect Wallet</button>
-      <p id="wallet-address"></p>
-    </section>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">Chivas</div>
+    <ul class="navbar-links">
+      <li><a href="./index.html">Login</a></li>
+      <li><a href="./signup.html">Sign Up</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
 
-    <section id="role-selection">
-      <h2>Select Your Role</h2>
-      <button id="driver-role">Driver</button>
-      <button id="rider-role">Rider</button>
-    </section>
-
-    <!-- Driver Interface -->
-    <section id="driver-interface" class="hidden">
-      <h2>Driver Interface</h2>
-      <button id="register-driver">Register as Driver</button>
-      <h3>Available Rides</h3>
-      <ul id="available-rides"></ul>
-      <button id="accept-ride">Accept Ride</button>
-      <h3>Earnings</h3>
-      <p id="driver-earnings"></p>
-      <button id="withdraw-earnings">Withdraw Earnings</button>
-    </section>
-
-    <!-- Rider Interface -->
-    <section id="rider-interface" class="hidden">
-      <h2>Rider Interface</h2>
-      <button id="register-rider">Register as Rider</button>
-      <h3>Book a Ride</h3>
-      <input type="text" id="pickup" placeholder="Pickup Location">
-      <input type="text" id="drop" placeholder="Drop Location">
-      <button id="book-ride">Book Ride</button>
-      <h3>Current Ride</h3>
-      <p id="ride-details"></p>
-      <h3>Ride History</h3>
-      <ul id="ride-history"></ul>
-    </section>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-  <script src="app.js"></script>
+  <!-- Login Page Content -->
+  <div class="login-container">
+    <div class="login-box">
+      <h1 class="login-title">Login</h1>
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option value="user">User</option>
+            <option value="rider">Rider</option>
+          </select>
+        </div>
+        <button type="submit" class="login-button"><a href="./dashboard.html">Login</a> </button>
+      </form>
+      <p class="signup-prompt">
+        Don't have an account? <a href="./signup.html" class="signup-link">Sign up</a>
+      </p>
+    </div>
+  </div>
 </body>
 </html>

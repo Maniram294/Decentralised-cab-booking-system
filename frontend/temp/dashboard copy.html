@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-brand">RideEasy</div>
+        <ul class="navbar-links">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#book-ride">Book a Ride</a></li>
+            <li><a href="#ride-history">Ride History</a></li>
+        </ul>
+
+        <!-- Profile Button -->
+        <div class="profile-button">
+            <button onclick="toggleProfileWindow()">Profile</button>
+        </div>
+    </div>
+
+    <!-- Profile Floating Window -->
+    <div id="profileWindow" class="profile-window">
+        <div class="profile-window-content">
+            <ul>
+                <li><button onclick="alert('Payments Section')">Payments</button></li>
+                <li><button onclick="alert('Notifications Section')">Notifications</button></li>
+                <li><button onclick="alert('Settings Section')">Settings</button></li>
+                <li><button onclick="alert('Logout Section')">Logout</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="dashboard-container">
+        <div class="dashboard-box">
+            <h1 class="dashboard-title">Welcome, User!</h1>
+            <p>Manage your rides, view history, and access personalized features here.</p>
+        </div>
+    </div>
+
+    <!-- Book a Ride Section -->
+    <div id="book-ride" class="ride-container">
+        <div class="ride-box">
+            <h1 class="ride-title">Book a Ride</h1>
+            <form id="rideForm" class="ride-form">
+                <div class="form-group">
+                    <label for="pickup">Pickup Location:</label>
+                    <input type="text" id="pickup" placeholder="Enter pickup location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" placeholder="Enter destination" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-type">Select Vehicle Type:</label>
+                    <select id="vehicle-type">
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="ride-button">Confirm Ride</button>
+            </form>
+            <div id="rideDetails" class="ride-details"></div>
+        </div>
+    </div>
+
+    <!-- Ride History Section -->
+    <div id="ride-history" class="ride-history-container">
+        <h1 class="ride-history-title">Ride History</h1>
+        <div id="historyList" class="history-list">
+            <!-- Dynamic ride history will be appended here -->
+        </div>
+    </div>
+
+    <script>
+        function toggleProfileWindow() {
+            const profileWindow = document.getElementById("profileWindow");
+            profileWindow.classList.toggle("show");
+        }
+
+        const rideForm = document.getElementById('rideForm');
+        const rideDetails = document.getElementById('rideDetails');
+        const historyList = document.getElementById('historyList');
+
+        // Array to store ride history
+        const rideHistory = [];
+
+        // Handle Book a Ride form submission
+        rideForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pickup = document.getElementById('pickup').value;
+            const destination = document.getElementById('destination').value;
+            const vehicleType = document.getElementById('vehicle-type').value;
+
+            // Display current ride details
+            rideDetails.innerHTML = ` 
+                <h3>Ride Details</h3>
+                <p><strong>Pickup:</strong> ${pickup}</p>
+                <p><strong>Destination:</strong> ${destination}</p>
+                <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+            `;
+
+            // Add to ride history
+            rideHistory.push({ pickup, destination, vehicleType });
+
+            // Reset form
+            rideForm.reset();
+        });
+
+        // Handle View Ride History button click
+        document.querySelector('a[href="#ride-history"]').addEventListener('click', () => {
+            // Clear existing history
+            historyList.innerHTML = '';
+
+            // Populate ride history
+            rideHistory.forEach((ride, index) => {
+                const rideItem = document.createElement('div');
+                rideItem.className = 'ride-item';
+                rideItem.innerHTML = `
+                    <p><strong>Ride ${index + 1}</strong></p>
+                    <p><strong>Pickup:</strong> ${ride.pickup}</p>
+                    <p><strong>Destination:</strong> ${ride.destination}</p>
+                    <p><strong>Vehicle Type:</strong> ${ride.vehicleType}</p>
+                `;
+                historyList.appendChild(rideItem);
+            });
+
+            // Scroll to Ride History section
+            document.getElementById('ride-history').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
