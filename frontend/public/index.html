@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decentralized Cab Booking System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Decentralized Cab Booking System</h1>
+  </header>
+  <main>
+    <section id="wallet-connect">
+      <button id="connect-wallet">Connect Wallet</button>
+      <p id="wallet-address"></p>
+    </section>
+
+    <section id="role-selection">
+      <h2>Select Your Role</h2>
+      <button id="driver-role">Driver</button>
+      <button id="rider-role">Rider</button>
+    </section>
+
+    <!-- Driver Interface -->
+    <section id="driver-interface" class="hidden">
+      <h2>Driver Interface</h2>
+      <button id="register-driver">Register as Driver</button>
+      <h3>Available Rides</h3>
+      <ul id="available-rides"></ul>
+      <button id="accept-ride">Accept Ride</button>
+      <h3>Earnings</h3>
+      <p id="driver-earnings"></p>
+      <button id="withdraw-earnings">Withdraw Earnings</button>
+    </section>
+
+    <!-- Rider Interface -->
+    <section id="rider-interface" class="hidden">
+      <h2>Rider Interface</h2>
+      <button id="register-rider">Register as Rider</button>
+      <h3>Book a Ride</h3>
+      <input type="text" id="pickup" placeholder="Pickup Location">
+      <input type="text" id="drop" placeholder="Drop Location">
+      <button id="book-ride">Book Ride</button>
+      <h3>Current Ride</h3>
+      <p id="ride-details"></p>
+      <h3>Ride History</h3>
+      <ul id="ride-history"></ul>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
